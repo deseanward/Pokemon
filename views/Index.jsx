@@ -7,7 +7,7 @@ const myStyle = {
 
 function Index(props) {
   const { pokemon } = props;
-  console.log("test");
+
   return (
     <div style={myStyle}>
       <h1>See All The Pokemon!</h1>
@@ -20,8 +20,7 @@ function Index(props) {
 
           return (
             <li key={i}>
-              <a href={i}>{pm.name}</a> <br />
-              <img src={pm.img} alt='Image' />
+              <a href={`/pokemon/${i}`}>{pm.name}</a> <br /><br />
             </li>
           );
         })}
