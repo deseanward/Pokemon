@@ -20,7 +20,7 @@ function Index(props) {
 
           return (
             <li key={i}>
-              {pm.name} <br />
+              <a href={i}>{pm.name}</a> <br />
               <img src={pm.img} alt='Image' />
             </li>
           );
