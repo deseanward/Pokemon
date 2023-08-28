@@ -11,6 +11,12 @@ const PORT = 3000;
 
 // Mount the middleware
 
+//**** Create routes ****//
+app.get('/', (req, res) => {
+    res.send('<h1>Welcome to the Pokemon App!</h1>')
+})
+
+
 // Listen to the port
 app.listen(PORT, () => {
   console.log(`Server running of port: ${PORT}`);
