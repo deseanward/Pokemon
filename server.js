@@ -1,7 +1,7 @@
 // Import express
 const express = require("express");
-const pokemon = require('./models/pokemon')
-
+const jsxEngine = require("jsx-view-engine");
+const pokemon = require("./models/pokemon");
 
 // Create an instance of express
 const app = express();
@@ -10,19 +10,21 @@ const app = express();
 const PORT = 3000;
 
 // Configure the app
-
+app.set("view engine", "jsx");
+app.engine("jsx", jsxEngine());
 // Mount the middleware
 
 //**** Create routes ****//
-app.get('/', (req, res) => {
-    res.send('<h1>Welcome to the Pokemon App!</h1>')
-})
+app.get("/", (req, res) => {
+  res.send("<h1>Welcome to the Pokemon App!</h1>");
+});
 
 // Display Pokemon
-app.get('/pokemon', (req, res) => {
-    res.send(pokemon)
-})
-
+app.get("/pokemon", (req, res) => {
+  res.render("Index", {
+    pokemon: pokemon,
+  });
+});
 
 // Listen to the port
 app.listen(PORT, () => {
