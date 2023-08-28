@@ -19,11 +19,16 @@ app.get("/", (req, res) => {
   res.send("<h1>Welcome to the Pokemon App!</h1>");
 });
 
-// Display Pokemon
+// Display Pokemon List
 app.get("/pokemon", (req, res) => {
   res.render("Index", {
     pokemon: pokemon,
   });
+});
+
+// Display Individual Pokemon
+app.get("/pokemon/:id", (req, res) => {
+  res.send(req.params.id);
 });
 
 // Listen to the port
